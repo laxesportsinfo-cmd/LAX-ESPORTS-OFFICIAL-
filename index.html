@@ -1,627 +1,177 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>LAX ESPORTS OFFICIAL</title>
 
+<link rel="stylesheet" href="style.css">
+
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<style>
-
-/* GLOBAL */
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Orbitron,sans-serif;
-}
-
-body{
-background:#06060b;
-color:white;
-overflow-x:hidden;
-}
-
-/* NAVBAR */
-
-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:18px 40px;
-background:#0c0c14;
-position:sticky;
-top:0;
-z-index:999;
-}
-
-header:before{
-content:"";
-position:absolute;
-left:0;
-top:0;
-width:100%;
-height:3px;
-background:linear-gradient(90deg,red,orange,yellow,green,cyan,blue,purple);
-animation:rgb 6s linear infinite;
-}
-
-@keyframes rgb{
-0%{filter:hue-rotate(0)}
-100%{filter:hue-rotate(360deg)}
-}
-
-.logo{
-font-size:22px;
-color:#00f7ff;
-font-weight:700;
-}
-
-nav a{
-margin:0 15px;
-text-decoration:none;
-color:white;
-transition:.3s;
-}
-
-nav a:hover{
-color:#00f7ff;
-}
-
-/* HERO */
-
-.hero{
-height:85vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-background:linear-gradient(#000000aa,#000000aa),
-url("https://wallpaperaccess.com/full/3175014.jpg");
-background-size:cover;
-}
-
-.hero h1{
-font-size:56px;
-margin-bottom:10px;
-}
-
-.hero button{
-margin-top:25px;
-padding:14px 34px;
-border:none;
-border-radius:30px;
-background:#00f7ff;
-color:black;
-cursor:pointer;
-}
-
-/* TEAM */
-
-.team{
-padding:80px 20px;
-text-align:center;
-}
-
-.team-grid{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:30px;
-margin-top:40px;
-}
-
-.player{
-width:220px;
-background:#101018;
-padding:20px;
-border-radius:12px;
-border:2px solid cyan;
-transition:0.3s;
-}
-
-.player:hover{
-transform:scale(1.05);
-box-shadow:0 0 15px cyan;
-}
-
-.player img{
-width:100%;
-border-radius:8px;
-}
-
-/* PLAYER STATS */
-
-.stats{
-padding:80px 20px;
-text-align:center;
-}
-
-.stats table{
-width:90%;
-margin:auto;
-border-collapse:collapse;
-}
-
-.stats th,.stats td{
-border:1px solid #0C54FF;
-padding:10px;
-}
-
-/* TOURNAMENT */
-
-.tournaments{
-padding:80px 20px;
-text-align:center;
-}
-
-.tour-card{
-background:#101018;
-margin:20px auto;
-padding:20px;
-max-width:420px;
-border-left:5px solid #FF11FF;
-}
-
-#Register{
-background:linear-gradient(#00FFFF,#ADA1FF,#0000FF);
-padding:10px 20px;
-border:none;
-border-radius:10px;
-color:white;
-cursor:pointer;
-}
-
-/* LIVE STREAM */
-
-.stream{
-padding:80px 20px;
-text-align:center;
-}
-
-iframe{
-border:none;
-border-radius:10px;
-margin-top:18px;
-}
-
-/* DISCORD */
-
-.discord{
-padding:80px 20px;
-text-align:center;
-}
-
-/* SHARE */
-
-.share{
-text-align:center;
-padding:40px;
-}
-
-.share button{
-padding:10px 20px;
-background:#FF11FF;
-border:none;
-cursor:pointer;
-border-radius:12px;
-color:white;
-}
-
-/* SHARE MODAL */
-
-.share-modal{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.8);
-display:none;
-align-items:center;
-justify-content:center;
-}
-
-.share-box{
-background:#111;
-padding:25px;
-border-radius:15px;
-width:320px;
-border:2px solid cyan;
-}
-
-.share-top{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:20px;
-}
-
-.close-btn{
-cursor:pointer;
-}
-
-.share-icons{
-display:flex;
-justify-content:space-between;
-margin-bottom:20px;
-}
-
-.share-icons a{
-width:40px;
-height:40px;
-display:flex;
-align-items:center;
-justify-content:center;
-background:#000;
-border-radius:50%;
-color:white;
-font-size:18px;
-cursor:pointer;
-transition:0.3s;
-}
-
-.share-icons a:hover{
-background:cyan;
-color:black;
-}
-
-.share-link-box{
-display:flex;
-gap:10px;
-}
-
-.share-link-box input{
-flex:1;
-padding:8px;
-border:none;
-border-radius:5px;
-}
-
-.share-link-box button{
-padding:8px 15px;
-border:none;
-background:cyan;
-cursor:pointer;
-}
-
-/* FOOTER */
-
-footer{
-padding:40px;
-background:#0c0c14;
-text-align:center;
-}
-.tournament-modal{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.85);
-display:none;
-align-items:center;
-justify-content:center;
-z-index:999;
-}
-
-.tournament-box{
-background:#0c0c14;
-padding:30px;
-border-radius:15px;
-width:350px;
-border:2px solid cyan;
-}
-
-.tournament-top{
-display:flex;
-justify-content:space-between;
-margin-bottom:20px;
-}
-
-.tournament-box input{
-width:100%;
-padding:10px;
-margin-bottom:12px;
-border:none;
-border-radius:6px;
-background:#111;
-color:white;
-}
-
-.tournament-box button{
-width:100%;
-padding:12px;
-background:linear-gradient(90deg,#00f7ff,#ff00ff);
-border:none;
-border-radius:8px;
-color:white;
-font-weight:bold;
-cursor:pointer;
-}
-</style>
 </head>
 
 <body>
 
-<header>
+<!-- LOADING SCREEN -->
 
-<div class="logo">LAX ESPORTS OFFICIAL</div>
+<div id="loader">
+
+<h1>LAX ESPORTS</h1>
+<div class="spinner"></div>
+
+</div>
+
+<!-- NAVBAR -->
 
 <nav>
-<a href="#">Home</a>
-<a href="#team">Team</a>
-<a href="#stats">Stats</a>
-<a href="#tournaments">Tournaments</a>
-<a href="#stream">Live</a>
-<a href="#community">Community</a>
+
+<h2>LAX ESPORTS</h2>
+
+<ul>
+
+<li><a href="#">Dashboard</a></li>
+<li><a href="#team">Team</a></li>
+<li><a href="#tournament">Tournament</a></li>
+<li><a href="#live">Live</a></li>
+
+</ul>
+
 </nav>
 
-</header>
+<!-- HERO -->
 
 <section class="hero">
 
 <h1>LAX ESPORTS OFFICIAL</h1>
 
-<p>Competitive Gaming • Free Fire • Tournaments</p>
+<p>Professional Free Fire Esports Organization</p>
 
-<button onclick="joinTeam()">Join Our Esports</button>
+<button onclick="openRegister()">Register Team</button>
 
 </section>
 
-<section id="team" class="team">
+<!-- TEAM SECTION -->
 
-<h2>OUR TEAM</h2>
+<section id="team">
+
+<h2>Our Team</h2>
 
 <div class="team-grid">
 
 <div class="player">
-<img src="file_00000000f548720b8048303bcff01cf7.png">
+
+<img src="assets/players/alfa.png">
 <h3>LAX ALFA</h3>
-<p>Sniper / Leader</p>
+<p>Leader</p>
+
 </div>
 
 <div class="player">
-<img src="file_000000003c5c72089b187dfba9f1bba2 (1).png">
+
+<img src="assets/players/safi.png">
 <h3>LAX SAFI</h3>
-<p>Rusher</p>
+<p>Sniper</p>
+
 </div>
 
 <div class="player">
-<img src="file_000000006998720bbefd0529ea3cf864.png">
+
+<img src="assets/players/asleem.png">
 <h3>LAX ASLEEM</h3>
-<p>Support</p>
+<p>Rusher</p>
+
 </div>
 
 </div>
 
 </section>
 
-<section id="stats" class="stats">
+<!-- TOURNAMENT -->
 
-<h2>PLAYER STATS</h2>
+<section id="tournament">
 
-<table>
+<h2>Upcoming Tournament</h2>
 
-<tr>
-<th>Player</th>
-<th>Role</th>
-<th>K/D</th>
-<th>Wins</th>
-</tr>
+<div class="tournament-card">
 
-<tr>
-<td>LAX ALFA</td>
-<td>Sniper</td>
-<td>4.1</td>
-<td>52</td>
-</tr>
+<h3>Squad Battle</h3>
 
-<tr>
-<td>LAX SAFI</td>
-<td>Rusher</td>
-<td>3.6</td>
-<td>40</td>
-</tr>
+<p>Date: 30 March</p>
 
-<tr>
-<td>LAX ASLEEM</td>
-<td>Support</td>
-<td>3.2</td>
-<td>37</td>
-</tr>
+<p id="countdown"></p>
 
-</table>
-
-</section>
-
-<section id="tournaments" class="tournaments">
-
-<h2>UPCOMING TOURNAMENTS</h2>
-
-<div class="tour-card">
-
-<h3>Free Fire Squad Cup</h3>
-
-<p>Date: 20 May 2026</p>
-
-<button class="register-btn" onclick="openTournament()">Register Now</button>
+<button onclick="openRegister()">Join Tournament</button>
 
 </div>
 
 </section>
 
-<section id="stream" class="stream">
+<!-- REGISTRATION POPUP -->
 
-<h2>LIVE STREAM</h2>
+<div id="registerPopup" class="popup">
 
-<iframe width="500" height="280"
-src="https://www.youtube.com/embed/live_stream?channel=@LAXESPORTSOFFICIAL">
-</iframe>
+<div class="popup-box">
+
+<h2>Tournament Registration</h2>
+
+<input id="teamName" placeholder="Team Name">
+
+<input id="p1" placeholder="UID (Leader)">
+<input id="p2" placeholder="UID (Rusher)">
+<input id="p3" placeholder="UID (Sniper)">
+<input id="p4" placeholder="UID (Support)">
+
+<button onclick="registerTeam()">Submit</button>
+
+<button onclick="closeRegister()">Close</button>
+
+</div>
+
+</div>
+
+<!-- REGISTERED TEAMS -->
+
+<section>
+
+<h2>Registered Teams</h2>
+
+<div id="teams"></div>
 
 </section>
 
-<section id="community" class="discord">
+<!-- ROOM ANNOUNCEMENT -->
 
-<h2>JOIN OUR COMMUNITY</h2>
+<section>
 
-<iframe src="https://discord.com/widget?id=wsSr6QmC&theme=dark"
-width="350"
-height="500"></iframe>
+<h2>Room Announcement</h2>
 
-</section>
+<p>Room ID: <span id="roomID">Not Released</span></p>
 
-<section class="share">
-
-<h2>Share Our Website</h2>
-<br>
-<button onclick="openShareModal()">Share</button>
+<p>Password: <span id="roomPass">Not Released</span></p>
 
 </section>
 
-<div class="share-modal" id="shareModal">
+<!-- LIVE STREAM -->
 
-<div class="share-box">
+<section id="live">
 
-<div class="share-top">
+<h2>Live Stream</h2>
 
-<h3>Follow Us</h3>
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/live_stream?channel=YOUR_CHANNEL_ID"
+frameborder="0"
+allowfullscreen></iframe>
 
-<span class="close-btn" onclick="closeShareModal()">
-<i class="fa-solid fa-xmark"></i>
-</span>
+<p>Viewers: <span id="viewCount">0</span></p>
 
-</div>
+</section>
 
-<div class="share-icons">
-
-<a id="ig"><i class="fab fa-instagram"></i></a>
-<a id="yt"><i class="fab fa-youtube"></i></a>
-<a id="dc"><i class="fab fa-discord"></i></a>
-<a id="tg"><i class="fab fa-telegram"></i></a>
-
-</div>
-
-<div class="share-link-box">
-
-<input type="text" id="shareLink" readonly>
-
-<button onclick="copyLink()">Copy</button>
-
-</div>
-
-</div>
-
-</div>
-<div class="tournament-modal" id="tournamentModal">
-
-<div class="tournament-box">
-
-<div class="tournament-top">
-
-<h3>Free Fire Tournament Registration</h3>
-
-<span onclick="closeTournament()">✖</span>
-
-</div>
-
-<form onsubmit="submitTournament(event)">
-
-<input type="text" placeholder="Team Name" required>
-
-<input type="text" placeholder="Player 1 UID" required>
-
-<input type="text" placeholder="Player 2 UID">
-
-<input type="text" placeholder="Player 3 UID">
-
-<input type="text" placeholder="Player 4 UID">
-
-<input type="text" placeholder="Discord ID" required>
-
-<input type="tel" placeholder="WhatsApp Number" required>
-
-<button type="submit">Submit Registration</button>
-
-</form>
-
-</div>
-
-</div>
-<footer>
-
-<p>© 2026 LAX ESPORTS OFFICIAL</p>
-
-</footer>
-
-<script>
-
-function joinTeam(){
-alert("Join form coming soon!");
-}
-
-}
-
-function openShareModal(){
-
-document.getElementById("shareModal").style.display="flex";
-
-let url = window.location.href;
-
-document.getElementById("shareLink").value = url;
-
-document.getElementById("ig").href =
-"https://www.instagram.com/lax_esports_ofc";
-
-document.getElementById("yt").href =
-"https://www.youtube.com/@LAXESPORTSOFFICIAL";
-
-document.getElementById("dc").href =
-"https://discord.gg/wsSr6QmC";
-
-document.getElementById("tg").href =
-"https://t.me/boost/lax_esports_official";
-
-}
-
-function closeShareModal(){
-document.getElementById("shareModal").style.display="none";
-}
-
-function copyLink(){
-
-let link=document.getElementById("shareLink");
-
-link.select();
-document.execCommand("copy");
-
-}
-function openTournament(){
-document.getElementById("tournamentModal").style.display="flex";
-}
-
-function closeTournament(){
-document.getElementById("tournamentModal").style.display="none";
-}
-
-function submitTournament(e){
-
-e.preventDefault();
-
-alert("Registration submitted successfully!");
-
-document.getElementById("tournamentModal").style.display="none";
-
-}
-</script>
+<script src="script.js"></script>
+<script type="module" src="firebase.js"></script>
 
 </body>
 </html>
